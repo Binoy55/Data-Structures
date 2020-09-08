@@ -1,0 +1,55 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+    int T,m;
+    int N,i,l,f=0,c=0,k,j;
+    cin>>T;
+   
+        while(T--)
+        { 
+            c=0;
+            
+            cin>>N;
+            int a[N];
+            for(m=0;m<N;m++)
+                cin>>a[m];
+            
+            sort(a,a+N);
+            
+            for(i=N-1;i>1;i--)
+            {
+                j=i-1; //           k    j  i
+                k=0;
+                while(j>k){
+                    if(a[j]+a[k] == a[i])
+                    {
+                        c++;
+                        j--;
+                        k++;
+                    }
+                    else if(a[j]+a[k]<a[i])
+                    {
+                        k++;
+                    }
+                    else 
+                    {
+                        j--;
+                    }
+                }
+            }
+            if(c>0)
+        {
+            cout<<c<<endl;
+        }
+        else
+        {
+            cout<<"-1"<<endl;
+        }
+        }
+        
+
+	    return 0;
+}
